@@ -1,0 +1,8 @@
+.textBox {
+    margin: 1rem;
+}
+
+input {
+    padding: 0.5rem;
+    border-color: gray;
+}
