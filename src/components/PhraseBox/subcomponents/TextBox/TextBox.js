@@ -4,10 +4,16 @@ import './styles.scss';
 function TextBox(props) {
   const [answer, setAnswer] = useState(props.answer);
   const [validated, setValidated] = useState(null);
+  let toneAppliedCharacters = [
+    ['','ā','ē','ī','ō','ū'],
+    ['','á','é','í','ó','ú'],
+    ['','ǎ','ě','ǐ','ǒ','ǔ'],
+    ['','à','è','ì','ò','ù']
+  ]
 
   function handleKeyDown(e) {
     let enteredValue = e.target.value;
-    let isAlphaNumeric = /^[a-z0-9]+$/i.test(e.key);
+    let isAlphaNumeric = /^[a-zA-Z0-9 ]*$/i.test(e.key);
 
     if(isAlphaNumeric) {
       switch(e.key) {
@@ -15,19 +21,12 @@ function TextBox(props) {
           validateSubmission(enteredValue);
           break;
         case '1':
-          e.preventDefault();
-          e.target.value = formatInput(enteredValue, applyFirstTones);
-          break;
         case '2':
-          e.preventDefault();
-          e.target.value = formatInput(enteredValue, applySecondTones);
-          break;
         case '3':
-          e.preventDefault();
-          e.target.value = formatInput(enteredValue, applyThirdTones);
         case '4':
           e.preventDefault();
-          e.target.value = formatInput(enteredValue, applyFourthTones);
+          e.target.value = formatInput(enteredValue, toneAppliedCharacters[e.key - 1]);
+          break;
         case '6':
         case '7':
         case '8':
@@ -52,80 +51,49 @@ function TextBox(props) {
     }
   };
 
-  function formatInput(enteredValue, applyTones) {
+  function formatInput(enteredValue, toneList) {
     let character = enteredValue[enteredValue.length - 1];
-    let toneAppliedCharacter = applyTones(character);
+    let toneAppliedCharacter = toneList[applyTones(character)];
     let newValue = toneAppliedCharacter ? enteredValue.slice(0, -1) + toneAppliedCharacter : enteredValue;
     return newValue;
   };
 
-  function applyFirstTones(character) {
+  function applyTones(character) {
     switch(character) {
       case 'a':
-        return 'ā';
+      case 'ā':
+      case 'á':
+      case 'ǎ':
+      case 'à':
+        return 1;
       case 'e':
-        return 'ē';
+      case 'ē':
+      case 'é':
+      case 'ě':
+      case 'è':
+        return 2;
       case 'i':
-        return 'ī';
+      case 'ī':
+      case 'í':
+      case 'ǐ':
+      case 'ì':
+        return 3;
       case 'o':
-        return 'ō';
+      case 'ō':
+      case 'ó':
+      case 'ǒ':
+      case 'ò':
+        return 4;
       case 'u':
-        return 'ū';
+      case 'ū':
+      case 'ú':
+      case 'ǔ':
+      case 'ù':
+        return 5;
       default:
-        return false;
+        return 0;
     }
-  };
-
-  function applySecondTones(character) {
-    switch(character) {
-      case 'a':
-        return 'á';
-      case 'e':
-        return 'é';
-      case 'i':
-        return 'í';
-      case 'o':
-        return 'ó';
-      case 'u':
-        return 'ú';
-      default:
-        return false;
-    }
-  };
-
-  function applyThirdTones(character) {
-    switch(character) {
-      case 'a':
-        return 'ǎ';
-      case 'e':
-        return 'ě';
-      case 'i':
-        return 'ǐ';
-      case 'o':
-        return 'ǒ';
-      case 'u':
-        return 'ǔ';
-      default:
-        return false;
-    }
-  };
-
-  function applyFourthTones(character) {
-    switch(character) {
-      case 'a':
-        return 'à';
-      case 'e':
-        return 'è';
-      case 'i':
-        return 'ì';
-      case 'o':
-        return 'ò';
-      case 'u':
-        return 'ù';
-      default:
-        return false;
-    }
-  };
+  }
 
   return (
     <div className='textBox'>
