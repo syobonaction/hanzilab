@@ -8,7 +8,8 @@ function TextBox(props) {
     ['','ā','ē','ī','ō','ū'],
     ['','á','é','í','ó','ú'],
     ['','ǎ','ě','ǐ','ǒ','ǔ'],
-    ['','à','è','ì','ò','ù']
+    ['','à','è','ì','ò','ù'],
+    ['','','','','','ǚ']
   ]
 
   function handleKeyDown(e) {
@@ -24,6 +25,7 @@ function TextBox(props) {
         case '2':
         case '3':
         case '4':
+        case '5':
           e.preventDefault();
           e.target.value = formatInput(enteredValue, toneAppliedCharacters[e.key - 1]);
           break;
@@ -89,6 +91,7 @@ function TextBox(props) {
       case 'ú':
       case 'ǔ':
       case 'ù':
+      case 'ǚ':
         return 5;
       default:
         return 0;
