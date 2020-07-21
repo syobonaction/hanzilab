@@ -1,0 +1,14 @@
+.textBox {
+  margin: 1rem;
+}
+
+input {
+  padding: 1vh;
+  border: 1px solid gray;
+  font-size: 2rem;
+  width: 40vh;
+
+  &.valid {
+    border: 3px solid green;
+  }
+}

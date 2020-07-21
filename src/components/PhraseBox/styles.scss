@@ -1,0 +1,11 @@
+.App-phraseBox {
+  border: 1px solid lightgray;
+  height: 50vh;
+  width: 90vw;
+
+  .contents {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+  }
+}

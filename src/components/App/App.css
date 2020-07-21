@@ -1,6 +1,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
+  margin-bottom: 5vh;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -8,6 +9,8 @@
 }
 
 .App-body {
+  display: flex;
+  height: 70vh;
   align-items: center;
   justify-content: center;
 }
