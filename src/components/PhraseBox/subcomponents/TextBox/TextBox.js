@@ -14,7 +14,7 @@ function TextBox(props) {
 
   function handleKeyDown(e) {
     let enteredValue = e.target.value;
-    let isAlphaNumeric = /^[a-zA-Z0-9 ]*$/i.test(e.key);
+    let isAlphaNumeric = /^[a-zA-Z0-9 ']*$/i.test(e.key);
 
     if(isAlphaNumeric) {
       switch(e.key) {
