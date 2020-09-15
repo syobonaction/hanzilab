@@ -41,7 +41,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="App-body">
-        <PhraseBox phrase={getPhrase()}/>
+        <PhraseBox phrase={getPhrase()} getPhrase={getPhrase}/>
       </div>
     </div>
   );

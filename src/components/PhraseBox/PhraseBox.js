@@ -5,12 +5,19 @@ import SubCategory from './subcomponents/SubCategory/SubCategory';
 import './styles.scss';
 
 function PhraseBox(props) {
+  const textBoxProps = {
+    id: 'test',
+    name: 'test',
+    answer: props.phrase.targetPinyin,
+    getPhrase: props.getPhrase,
+  };
+
   return (
     <div className='App-phraseBox'>
       <div className='contents'>
         <Phrase phrase={props.phrase}/>
         <SubCategory text={props.phrase.phraseMeaning}/>
-        <TextBox id='test' name='test' answer={props.phrase.targetPinyin}/>
+        <TextBox {...textBoxProps} />
       </div>
     </div>
   );

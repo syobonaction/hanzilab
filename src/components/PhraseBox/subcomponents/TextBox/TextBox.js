@@ -47,6 +47,7 @@ function TextBox(props) {
     if(answer===enteredValue) {
       console.log('correct!');
       setValidated(true);
+      props.getPhrase();
     } else {
       console.log('incorrect!');
       setValidated(false);
