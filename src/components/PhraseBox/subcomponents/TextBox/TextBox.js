@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { handleSubmission } from '../../../../actions/actions';
 import './styles.scss';
 
 function TextBox(props) {
-  const [answer, setAnswer] = useState(props.answer);
   const [validated, setValidated] = useState(null);
   let toneAppliedCharacters = [
     ['','ā','ē','ī','ō','ū'],
@@ -35,6 +35,7 @@ function TextBox(props) {
         case '9':
         case '0':
           e.preventDefault();
+          break;
         default:
           break;
       }
@@ -44,13 +45,14 @@ function TextBox(props) {
   };
   
   function validateSubmission(enteredValue) {
-    if(answer===enteredValue) {
+    if(props.answer===enteredValue) {
       console.log('correct!');
       setValidated(true);
-      props.getPhrase();
+      handleSubmission(true);
     } else {
       console.log('incorrect!');
       setValidated(false);
+      handleSubmission(false);
     }
   };
 

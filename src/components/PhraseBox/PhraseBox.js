@@ -8,15 +8,14 @@ function PhraseBox(props) {
   const textBoxProps = {
     id: 'test',
     name: 'test',
-    answer: props.phrase.targetPinyin,
-    getPhrase: props.getPhrase,
+    answer: props.card.targetPinyin,
   };
 
   return (
     <div className='App-phraseBox'>
       <div className='contents'>
-        <Phrase phrase={props.phrase}/>
-        <SubCategory text={props.phrase.phraseMeaning}/>
+        <Phrase phrase={props.card}/>
+        <SubCategory text={props.card.phraseMeaning}/>
         <TextBox {...textBoxProps} />
       </div>
     </div>

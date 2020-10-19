@@ -1,0 +1,4 @@
+export default {
+  LOAD_CARDS: 'LOAD_CARDS',
+  ANSWER_SUBMITTED: 'ANSWER_SUBMITTED',
+}

@@ -29,5 +29,13 @@ module.exports = {
                 loader: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ]
-    }
+    },
+    resolve: {
+        alias: {
+            views: path.resolve(__dirname, 'src/views/'),
+            components: path.resolve(__dirname, 'src/components/'),
+            stores: path.resolve(__dirname, 'src/stores/'),
+            images: path.resolve(__dirname, 'src/img/'),
+        }
+    },
 };
