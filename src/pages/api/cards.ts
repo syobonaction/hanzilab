@@ -1,6 +1,5 @@
 // get flashcard content from Hygraph
 import { gql, request } from 'graphql-request';
-//const graphqlAPI = "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/cle2vhav24zro01um3q2ld7tc/master";
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_PROJECT_API;
 
 // getting post comments
