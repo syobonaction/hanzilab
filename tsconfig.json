@@ -19,7 +19,7 @@
       "~/*": ["./public/*"]
     },
     "incremental": true,
-    "types": ["node"]
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["env.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
