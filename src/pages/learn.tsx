@@ -8,14 +8,6 @@ import Seo from '@/components/Seo';
 
 import { getCards } from './api/cards';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-
 type Card = {
   word: string;
   target: string;
@@ -53,7 +45,7 @@ export default function LearnPage() {
             <p className='mt-2 text-sm text-gray-800'>{card.translation}</p>
 
             <input
-              className='focus:shadow-outline m-2 inline-block appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none'
+              className='focus:shadow-outline mt-10 inline-block appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none'
               type='text'
               placeholder='Enter Pinyin'
             ></input>
